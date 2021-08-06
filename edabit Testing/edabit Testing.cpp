@@ -43,6 +43,22 @@ float PairVal::getDiv()const
 
 bool compPairVal(PairVal lhs, PairVal rhs) { return lhs.v < rhs.v; }
 
+void mySort(PairVal* arr, int ind) {
+	PairVal f;
+	bool pass = false;
+	while (!pass) {
+		pass = true;
+		for (int i = 1; i < ind; i++) {
+			if (arr[i].v < arr[i - 1].v) {
+				pass = false;
+				f = arr[i];
+				arr[i] = arr[i - 1];
+				arr[i - 1] = f;
+			}
+		}
+	}
+}
+
 void doFarey(int in) {
 	PairVal list[100];
 	bool check = true;
@@ -67,6 +83,7 @@ void doFarey(int in) {
 		}
 	}
 
+	mySort(list,index);
 
 	for (int i = 0; i < index; i++) {
 		std::cout << std::to_string(list[i].z) << "/" << std::to_string(list[i].n) << " val:" << std::to_string(list[i].v) << '\n';
