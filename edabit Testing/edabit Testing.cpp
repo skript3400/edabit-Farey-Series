@@ -67,7 +67,6 @@ void doFarey(int in) {
 		}
 	}
 
-	std::sort(list, list+index , compPairVal);
 
 	for (int i = 0; i < index; i++) {
 		std::cout << std::to_string(list[i].z) << "/" << std::to_string(list[i].n) << " val:" << std::to_string(list[i].v) << '\n';
